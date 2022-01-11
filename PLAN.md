@@ -1,7 +1,7 @@
 # Problems
 ## Set - 1
-- [ ] Linear Search
-- [ ] Binary Search
+- [x] Linear Search - 11/01/2022
+- [x] Binary Search - 11/01/2022
 - [ ] FIFO Data Structure - Linked List Implementation
 - [ ] LIFO Data Structure - Linked List Implementation
 - [ ] FIFO - Array Implementation
