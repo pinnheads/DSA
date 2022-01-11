@@ -46,9 +46,3 @@ def binary_search(val, arr):
             beg = mid + 1
         
     return -1
-
-
-if __name__ == "__main__":
-    print(f"Linear search {linear_search(22, [21, 22, 23, 25, 27, 29])}")
-    print(f"Binary search: Sorted List {binary_search(22, [21, 22, 23, 24, 25, 26])}")
-    print(f"Binary search: Unsorted List {binary_search(22, [21, 22, 23, 24, 26, 25])}")
