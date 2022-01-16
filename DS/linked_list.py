@@ -1,3 +1,6 @@
+from ast import Delete
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -7,7 +10,7 @@ class Node:
         return str(self.data)
 
 
-class LinkedList:
+class LinkedList(object):
     def __init__(self, nodes=None):
         self.head = None
         if nodes is not None:
@@ -114,3 +117,33 @@ class LinkedList:
             prev = temp
             temp = temp.next
         prev.next = None
+
+
+class FIFO_LL(LinkedList):
+    """
+    First In First Out Linked List
+    """
+
+    def __init__(self, nodes=None):
+        super().__init__(nodes)
+
+    def insert(self, val: Node):
+        LinkedList.add_last(self, val)
+
+    def remove(self):
+        LinkedList.remove_first(self)
+
+
+class LIFO_LL(LinkedList):
+    """
+    Last in First Out Linked List
+    """
+
+    def __init__(self, nodes=None):
+        super().__init__(nodes)
+
+    def insert(self, val: Node):
+        LinkedList.add_first(self, val)
+
+    def remove(self):
+        LinkedList.remove_first(self)
