@@ -31,10 +31,10 @@ def binary_search(val, arr):
     if arr != sorted(arr):
         raise ValueError("Not a sorted list")
     
-    beg, end = 0, len(arr) - 1
+    start, end = 0, len(arr) - 1
 
-    while beg <= end:
-        mid = (beg+end) // 2
+    while start <= end:
+        mid = (start + end) // 2
 
         if arr[mid] == val:
             return mid
@@ -43,6 +43,6 @@ def binary_search(val, arr):
             end = mid - 1
         
         else:
-            beg = mid + 1
+            start = mid + 1
         
     return -1

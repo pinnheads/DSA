@@ -32,6 +32,32 @@ class LinkedList(object):
             yield node
             node = node.next
 
+    def ll_length(self):
+        temp = self.head
+        count = 0
+        while (temp):
+            count += 1
+            temp = temp.next
+        return count
+
+
+    def insert(self, index, node):
+        """Insert at a given index"""
+        if index == 0 or self.head == None:
+            self.add_first(node)
+        elif index == self.ll_length() - 1:
+            self.add_last(node)
+        else:
+            prev_node = self.head
+            for i in range(1, index-1):
+                if (prev_node != None):
+                    prev_node = prev_node.next
+            if(prev_node != None):
+                node.next = prev_node.next
+                prev_node.next = node
+            else:
+                raise Exception("Previous node is null!")
+
     def add_first(self, node):
         """
         Insert at the begining
