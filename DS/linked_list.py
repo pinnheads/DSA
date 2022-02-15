@@ -8,6 +8,7 @@ class Node:
 
 
 class LinkedList(object):
+    """Linked list implementation with common insert and remove methods"""
     def __init__(self, nodes=None):
         self.head = None
         if nodes is not None:
@@ -77,6 +78,7 @@ class LinkedList(object):
         current_node.next = node
 
     def add_after(self, target_node_data, new_node):
+        """Adds a new node after the specified node"""
         if self.head is None:
             raise Exception("List is empty")
 
@@ -89,6 +91,7 @@ class LinkedList(object):
         raise Exception(f"Node with data {target_node_data} not found")
 
     def add_before(self, target_node_data, new_node):
+        """Adds a new node before the specified node"""
         if self.head is None:
             raise Exception("List is empty")
 
@@ -106,6 +109,7 @@ class LinkedList(object):
         raise Exception("Node with data '%s' not found" % target_node_data)
 
     def remove_node(self, target_node_data):
+        """Deletes a specified node"""
         if self.head is None:
             raise Exception("List is empty")
 
@@ -123,6 +127,7 @@ class LinkedList(object):
         raise Exception("Node with data '%s' not found" % target_node_data)
 
     def remove_first(self):
+        """Removes first node"""
         if self.head is None:
             raise Exception("List is empty")
 
@@ -132,6 +137,7 @@ class LinkedList(object):
         current_node = None
 
     def remove_last(self):
+        """Removes last node"""
         if self.head is None:
             raise Exception("List is empty")
 

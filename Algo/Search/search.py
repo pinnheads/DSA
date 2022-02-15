@@ -15,7 +15,6 @@ def linear_search(val, arr):
             return index
     return -1
 
-
 def binary_search(val, arr):
     '''
     Binary Search Method to search for a element when the element to search and
@@ -35,13 +34,11 @@ def binary_search(val, arr):
 
     while start <= end:
         mid = (start + end) // 2
-
+        
         if arr[mid] == val:
             return mid
-
         elif arr[mid] >= val:
             end = mid - 1
-        
         else:
             start = mid + 1
         
