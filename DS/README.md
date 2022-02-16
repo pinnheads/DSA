@@ -51,3 +51,11 @@
     2. Delete at front
 
 ![Stack](images/stack_FIFO_LL.gif)
+
+## 2. List/Array
+
+- A list in Python is used to store the sequence of various types of data.
+
+- Python lists are mutable type its mean we can modify its element after it created. However, Python consists of six data-types that are capable to store the sequences, but the most common and reliable type is the list.
+
+- The main difference between python list and array is that while list can contain different data types, arrays can contains only homogenous data i.e only one data type of data.

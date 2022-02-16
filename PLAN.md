@@ -6,8 +6,8 @@
 - [x] Binary Search - 11/01/2022
 - [x] FIFO Data Structure - Linked List Implementation - 16/01/2022
 - [x] LIFO Data Structure - Linked List Implementation - 16/01/2022
-- [ ] FIFO - Array Implementation
-- [ ] LIFO - Array Implementation.
+- [x] FIFO - Array Implementation - 16/02/2022
+- [x] LIFO - Array Implementation - 16/02/2022
 
 ## Set - 2
 

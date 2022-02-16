@@ -8,38 +8,39 @@ class List:
         self.length = len(self.elements)
 
     def is_empty(self):
-        return self.length == 0
+        if self.length == 0:
+            raise Exception("Empty List")
 
     def __len__(self):
         return self.length
 
     def __repr__(self):
         if self.length > 0:
-            return "->".join(list(map(str, self.elements)))
+            return " -> ".join(list(map(str, self.elements)))
         else:
             return "Empty List"
 
     def add_last(self, value):
+        """Add element at the end"""
         self.elements.append(value)
         self.length += 1
 
     def add_first(self, value):
+        """Add element at the start"""
         self.elements.insert(0, value)
         self.length += 1
 
     def remove_last(self):
-        if self.is_empty():
-            raise Exception("Empty List")
-        else:
-            self.length -= 1
-            return self.elements.pop()
+        """Remove the last element"""
+        self.is_empty()
+        self.length -= 1
+        return self.elements.pop()
 
     def remove_front(self):
-        if self.is_empty():
-            raise Exception("Empty List")
-        else:
-            self.length -= 1
-            return self.elements.pop(0)
+        """Remove the first element"""
+        self.is_empty()
+        self.length -= 1
+        return self.elements.pop(0)
 
 
 class FIFO_List(List):
