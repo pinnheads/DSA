@@ -9,14 +9,18 @@ class Node:
 
 class LinkedList(object):
     """Linked list implementation with common insert and remove methods"""
+
     def __init__(self, nodes=None):
         self.head = None
+        self.length = 0
         if nodes is not None:
             node = Node(data=nodes.pop(0))
             self.head = node
+            self.length += 1
             for elem in nodes:
                 node.next = Node(data=elem)
                 node = node.next
+                self.length += 1
 
     def __repr__(self):
         node = self.head
@@ -33,31 +37,27 @@ class LinkedList(object):
             yield node
             node = node.next
 
-    def ll_length(self):
-        temp = self.head
-        count = 0
-        while (temp):
-            count += 1
-            temp = temp.next
-        return count
-
+    def __len__(self):
+        return self.length
 
     def insert(self, index, node):
         """Insert at a given index"""
+        if index - 1 > self.length:
+            raise Exception("Given index is larger than the length of LL")
+
         if index == 0 or self.head == None:
             self.add_first(node)
-        elif index == self.ll_length() - 1:
+        elif index == self.length - 1:
             self.add_last(node)
         else:
             prev_node = self.head
-            for i in range(1, index-1):
-                if (prev_node != None):
+            for i in range(1, index - 1):
+                if prev_node != None:
                     prev_node = prev_node.next
-            if(prev_node != None):
+            if prev_node != None:
                 node.next = prev_node.next
                 prev_node.next = node
-            else:
-                raise Exception("Previous node is null!")
+                self.length += 1
 
     def add_first(self, node):
         """
@@ -65,6 +65,7 @@ class LinkedList(object):
         """
         node.next = self.head
         self.head = node
+        self.length += 1
 
     def add_last(self, node):
         """
@@ -76,6 +77,7 @@ class LinkedList(object):
         for current_node in self:
             pass
         current_node.next = node
+        self.length += 1
 
     def add_after(self, target_node_data, new_node):
         """Adds a new node after the specified node"""
@@ -86,6 +88,7 @@ class LinkedList(object):
             if node.data == target_node_data:
                 new_node.next = node.next
                 node.next = new_node
+                self.length += 1
                 return
 
         raise Exception(f"Node with data {target_node_data} not found")
@@ -103,6 +106,7 @@ class LinkedList(object):
             if node.data == target_node_data:
                 prev_node.next = new_node
                 new_node.next = node
+                self.length += 1
                 return
             prev_node = node
 
@@ -115,12 +119,14 @@ class LinkedList(object):
 
         if self.head.data == target_node_data:
             self.head = self.head.next
+            self.length -= 1
             return
 
         previous_node = self.head
         for node in self:
             if node.data == target_node_data:
                 previous_node.next = node.next
+                self.length -= 1
                 return
             previous_node = node
 
@@ -135,6 +141,7 @@ class LinkedList(object):
 
         self.head = self.head.next
         current_node = None
+        self.length -= 1
 
     def remove_last(self):
         """Removes last node"""
@@ -146,6 +153,7 @@ class LinkedList(object):
             prev = temp
             temp = temp.next
         prev.next = None
+        self.length -= 1
 
 
 class FIFO_LL(LinkedList):
